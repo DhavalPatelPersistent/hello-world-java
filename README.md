@@ -1,4 +1,4 @@
-# Hello world with Java :coffee: <a href="https://www.w3schools.com" target="_blank">
+# Hello world with Java :coffee: <a href="https://www.w3schools.com" target="_blank"></a>
 
 This is a simple **"Hello world"** done with **Java** programming language.
 
