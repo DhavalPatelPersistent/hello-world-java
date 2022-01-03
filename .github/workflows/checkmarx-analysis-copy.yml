@@ -28,10 +28,10 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     # Runs the Checkmarx Scan leveraging the latest version of CxFlow - REFER to Action README for list of inputs
-    - name: Checkmarx CxFlow Action
-      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.3
-    #- name: Checkmarx CxFlow Action Copy - Not Official
-      #uses: DhavalPatelPersistent/checkmarx-cxflow-github-action-copy@master
+    #- name: Checkmarx CxFlow Action
+      #uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.3
+    - name: Checkmarx CxFlow Action Copy - Not Official
+      uses: DhavalPatelPersistent/checkmarx-cxflow-github-action-copy@master
       with:
         project: ${{ secrets.CHECKMARX_PROJECT }}
         team: ${{ secrets.CHECKMARX_TEAMS }}
