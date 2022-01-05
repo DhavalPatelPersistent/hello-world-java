@@ -33,8 +33,8 @@ jobs:
     - name: Checkmarx CxFlow Action Copy - Not Official
       uses: DhavalPatelPersistent/checkmarx-cxflow-github-action-copy@master
       with:
-        project: ${{ secrets.CHECKMARX_PROJECT }}
-        team: ${{ secrets.CHECKMARX_TEAMS }}
+        project: GitHub-find-sec-bugs-${{ steps.get-branch.outputs.branch }}
+        team: '/CxServer/SP/ANZ/CBA-GH-POC'
         checkmarx_url: ${{ secrets.CHECKMARX_URL }}
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
