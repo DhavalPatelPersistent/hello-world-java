@@ -40,7 +40,7 @@ jobs:
         checkmarx_password: 'gk7(-W&Y42'
         checkmarx_client_secret: '014DF517-39D1-4453-B7B3-9930C563627C'
         scanners: sast
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filterSeverity
+        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filterSeverity --cx-flow.http-read-timeout=600000
     # Upload the Report for CodeQL/Security Alerts
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v1
