@@ -1,8 +1,8 @@
-# Hello world with Java Test :coffee:
+# Hello world with Java :coffee: Test
 
 This is a simple **"Hello world"** done with **Java** programming language.
 
-## Source code
+## Source code Test
 
 This is the source code of the program:
 
