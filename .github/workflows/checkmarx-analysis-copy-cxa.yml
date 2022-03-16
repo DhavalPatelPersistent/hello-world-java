@@ -40,6 +40,7 @@ jobs:
         checkmarx_password: 'gk7(-W&Y42'
         checkmarx_client_secret: '014DF517-39D1-4453-B7B3-9930C563627C'
         scanners: sast
+        bug_tracker: JIRA
         #params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filterSeverity --checkmarx.incremental=false
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filter-severity=High --cx-flow.filter-category="SQL_Injection,SQL_Injection_via_Service" --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}} --jira.project=${{secrets.JIRA_PROJECT}} --jira.issue-type=Bug --jira.priorities.High=High --jira.priorities.Medium=Medium --jira.priorities.Low=Low --jira.priorities.Informational=Lowest --jira.open-transition="In Progress" --jira.close-transition=Done --jira.open-status="Backlog,Selected for Development,In Progress" --jira.closed-status=Done --checkmarx.incremental=false
     # Upload the Report for CodeQL/Security Alerts
