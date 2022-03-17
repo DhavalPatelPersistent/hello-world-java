@@ -41,15 +41,15 @@ jobs:
         checkmarx_client_secret: '014DF517-39D1-4453-B7B3-9930C563627C'
         scanners: sast
         bug_tracker: JIRA
-        JIRA_URL: 'https://cxflowuser.atlassian.net/'
-        JIRA_USERNAME: 'hussain.saifuddin@checkmarx.com'
-        JIRA_TOKEN: '4dzYKtUPEOmNDnpMJsc9AE3E'
-        JIRA_PROJECT: 'HFIRST'
-        JIRA_ISSUE_TYPE: 'Application Security Bug'
-        JIRA_OPEN_TRANSITION: 'In Progress'
-        JIRA_CLOSE_TRANSITION: 'Done'
-        JIRA_OPEN_STATUS: 'Backlog,Selected for Development,In Progress'
-        JIRA_CLOSED_STATUS: 'Done'
+        jira_url: 'https://cxflowuser.atlassian.net/'
+        jira_username: 'hussain.saifuddin@checkmarx.com'
+        jira_token: '4dzYKtUPEOmNDnpMJsc9AE3E'
+        jira_project: 'HFIRST'
+        jira_issue_type: 'Application Security Bug'
+        jira_open_transition: 'In Progress'
+        jira_close_transition: 'Done'
+        jira_open_status: 'Backlog,Selected for Development,In Progress'
+        jira_closed_status: 'Done'
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filterSeverity --checkmarx.incremental=false
         #params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filter-severity=High  --checkmarx.incremental=false --cx-flow.filter-category="SQL_Injection,SQL_Injection_via_Service" --jira.url="https://cxflowuser.atlassian.net/" --jira.username="hussain.saifuddin@checkmarx.com" --jira.token="4dzYKtUPEOmNDnpMJsc9AE3E" --jira.project="HFIRST" --jira.issue-type="Application Security Bug" --jira.priorities.High=High --jira.priorities.Medium=Medium --jira.priorities.Low=Low --jira.priorities.Informational=Lowest --jira.open-transition="In Progress" --jira.close-transition=Done --jira.open-status="Backlog,Selected for Development,In Progress" --jira.closed-status=Done
     # Upload the Report for CodeQL/Security Alerts
