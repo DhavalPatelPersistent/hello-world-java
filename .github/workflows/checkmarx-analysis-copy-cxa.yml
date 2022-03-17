@@ -43,7 +43,7 @@ jobs:
         bug_tracker: JIRA
         jira_url: 'https://cxflowuser.atlassian.net/'
         jira_username: 'hussain.saifuddin@checkmarx.com'
-        jira_token: 4dzYKtUPEOmNDnpMJsc9AE3E
+        jira_token: zSasocZwCuW8Qt8LpCnS74DA
         jira_project: 'HFIRST'
         jira_issue_type: 'Application Security Bug'
         jira_open_transition: 'In Progress'
