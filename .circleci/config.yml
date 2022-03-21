@@ -1,19 +1,19 @@
 description: >
-  Checkout code, run Checkmarx Scan, wait for results and store a Json Vulnerability report as an artifact
+  Retrieve latest results for a given Checkmarx project and store a Json Vulnerability report as an artifact
 usage:
   version: 2.1
   orbs:
     cxflow: checkmarx-ts/cxflow@1.0.4
 
-  jobs:
-    cx-scan:
-      executor: cxflow/default
-      steps:
-        - checkout
+  workflows:
+    version: 2
+    sast-scan:
+      jobs:
         - cxflow/scan:
+            project: CxProject
             team: "\\CxServer\\SP\\Checkmarx"
             preset: "Checkmarx Express"
-            report-file: checkmarx.json
+            report-file: vulns.json
             scanners: sca,ast,cxgo,sast
             # Remove the comments before execution
             # SCA scan parameters
@@ -31,15 +31,7 @@ usage:
             cxgo-multi-tenant: true
             cxgo-configuration: "Default Configuration"
             cxgo-scan-preset: 1,2,3,4,5,9
-
-        - store_artifacts:
-            path: checkmarx.json
-
-  workflows:
-    version: 2
-    sast-scan:
-      jobs:
-        - cx-scan:
             filters:
               branches:
-                only: master
+                only:
+                  - master
