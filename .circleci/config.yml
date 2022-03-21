@@ -1,37 +1,35 @@
-description: >
-  Retrieve latest results for a given Checkmarx project and store a Json Vulnerability report as an artifact
-usage:
-  version: 2.1
-  orbs:
-    cxflow: checkmarx-ts/cxflow@1.0.4
-
-  workflows:
-    version: 2
-    sast-scan:
-      jobs:
-        - cxflow/scan:
-            project: CxProject
-            team: "\\CxServer\\SP\\Checkmarx"
-            preset: "Checkmarx Express"
-            report-file: vulns.json
-            scanners: sca,ast,cxgo,sast
-            # Remove the comments before execution
-            # SCA scan parameters
-            sca-appUrl: https://sca.scacheckmarx.com
-            sca-apiUrl: https://api.scacheckmarx.com
-            sca-accessControlUrl: https://platform.checkmarx.net
-            #AST scan parameters
-            ast-apiUrl: "http://cx-ast-testing.dev.checkmarx-ts.com"
-            ast-preset: "Checkmarx Default"
-            ast-webAppUrl: "http://cx-ast-testing.dev.checkmarx-ts.com"
-            ast-incremental: false
-            # CXGO parameters
-            cxgo-base-url: https://api.checkmarx.net
-            cxgo-portal-url: https://cloud.checkmarx.net
-            cxgo-multi-tenant: true
-            cxgo-configuration: "Default Configuration"
-            cxgo-scan-preset: 1,2,3,4,5,9
-            filters:
-              branches:
-                only:
-                  - master
+jobs:
+  cx-scan:
+    executor: cxflow/default
+    steps:
+      - checkout
+      - cxflow/scan:
+          ast-apiUrl: 'http://cx-ast-testing.dev.checkmarx-ts.com'
+          ast-incremental: false
+          ast-preset: Checkmarx Default
+          ast-webAppUrl: 'http://cx-ast-testing.dev.checkmarx-ts.com'
+          cxgo-base-url: 'https://api.checkmarx.net'
+          cxgo-configuration: Default Configuration
+          cxgo-multi-tenant: true
+          cxgo-portal-url: 'https://cloud.checkmarx.net'
+          cxgo-scan-preset: '1,2,3,4,5,9'
+          preset: Checkmarx Express
+          report-file: checkmarx.json
+          sca-accessControlUrl: 'https://platform.checkmarx.net'
+          sca-apiUrl: 'https://api.scacheckmarx.com'
+          sca-appUrl: 'https://sca.scacheckmarx.com'
+          scanners: 'sca,ast,cxgo,sast'
+          team: \CxServer\SP\Checkmarx
+      - store_artifacts:
+          path: checkmarx.json
+orbs:
+  cxflow: checkmarx-ts/cxflow@1.0.5
+version: 2.1
+workflows:
+  sast-scan:
+    jobs:
+      - cx-scan:
+          filters:
+            branches:
+              only: master
+  version: 2
