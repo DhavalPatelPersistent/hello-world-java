@@ -21,8 +21,8 @@ jobs:
           sca-appUrl: 'https://sca.scacheckmarx.com'
           #scanners: 'sca,ast,cxgo,sast'
           scanners: 'sast'
-          #team: /CxServer/SP/ANZ/CBA-GH-POC
-          team: /CxServer
+          team: /CxServer/SP/ANZ/CBA-GH-POC
+          #team: /CxServer
           version: '9.4'
       - store_artifacts:
           path: checkmarx.json
