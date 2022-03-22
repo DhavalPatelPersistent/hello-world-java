@@ -20,8 +20,9 @@ jobs:
           sca-apiUrl: 'https://api.scacheckmarx.com'
           sca-appUrl: 'https://sca.scacheckmarx.com'
           #scanners: 'sca,ast,cxgo,sast'
-          scanners: 'sast'
-          team: /CxServer/SP/ANZ/CBA-GH-POC
+          scanners: 'sca'
+          #team: /CxServer/SP/ANZ/CBA-GH-POC
+          team: /CxServer
       - store_artifacts:
           path: checkmarx.json
 orbs:
