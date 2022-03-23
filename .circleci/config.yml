@@ -23,9 +23,9 @@ jobs:
           scanners: 'sast'
           team: /CxServer/SP/ANZ/CBA-GH-POC
           #team: /CxServer
-          params: '--cx-flow.thresholds.Medium=0'
           version: '9.4'
           incremental: false
+          params: '--cx-flow.thresholds.Medium=0'
       - store_artifacts:
           path: checkmarx.json
 orbs:
