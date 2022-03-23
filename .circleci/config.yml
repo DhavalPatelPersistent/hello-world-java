@@ -25,7 +25,7 @@ jobs:
           #team: /CxServer
           version: '9.4'
           incremental: false
-          params: '--cx-flow.thresholds.Medium=0'
+          apply-filters: '--cx-flow.thresholds.Medium=0'
       - store_artifacts:
           path: checkmarx.json
 orbs:
