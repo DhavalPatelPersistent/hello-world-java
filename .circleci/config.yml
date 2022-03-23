@@ -23,6 +23,7 @@ jobs:
           scanners: 'sast'
           team: /CxServer/SP/ANZ/CBA-GH-POC
           #team: /CxServer
+          params: --cx-flow.filterSeverity=High --cx-flow.filterSeverity=Medium --cx-flow.thresholds.high=0 --cx-flow.thresholds.Medium=10
           version: '9.4'
           incremental: false
       - store_artifacts:
