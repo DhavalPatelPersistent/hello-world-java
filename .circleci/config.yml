@@ -24,6 +24,7 @@ jobs:
           team: /CxServer/SP/ANZ/CBA-GH-POC
           #team: /CxServer
           version: '9.4'
+          incremental: false
       - store_artifacts:
           path: checkmarx.json
 orbs:
