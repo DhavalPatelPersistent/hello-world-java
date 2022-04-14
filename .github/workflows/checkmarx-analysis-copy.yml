@@ -39,7 +39,13 @@ jobs:
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
-        scanners: sast
+        sca_api_url: https://api.scacheckmarx.com
+        sca_app_url: https://sca.scacheckmarx.com
+        sca_access_control_url: https://platform.checkmarx.net
+        sca_tenant: Plugins  # <-- Insert Checkmarx CxSCA Tenant
+        sca_username: hussains # To be stored in GitHub Secrets.
+        sca_password: Cx123456! # To be stored in GitHub Secrets.
+        scanners: sca
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filterSeverity  --checkmarx.incremental=false --checkmarx.group-by-file-name=true
         #params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filter-severity=High --cx-flow.filter-category="SQL_Injection,SQL_Injection_via_Service" --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}} --jira.project=${{secrets.JIRA_PROJECT}} --jira.issue-type=Bug --jira.priorities.High=High --jira.priorities.Medium=Medium --jira.priorities.Low=Low --jira.priorities.Informational=Lowest --jira.open-transition="In Progress" --jira.close-transition=Done --jira.open-status="Backlog,Selected for Development,In Progress" --jira.closed-status=Done
     # Upload the Report for CodeQL/Security Alerts
